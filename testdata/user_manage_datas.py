@@ -119,25 +119,3 @@ search_name_data=[
         "IsSql":"0"
     },
 ]
-
-# 查询不存在用户名称和登录名称
-search_name_nodata=[
-    {
-        "title":"登录名称不存在",
-        "request_data":{"login_name":"#loginname#","user_name":"#username#"},
-        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
-        "IsSql":"0"
-    },
-    {
-        "title":"姓名不存在",
-        "request_data":{"login_name":"#loginname#","user_name":"#username#"},
-        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
-        "IsSql":"0"
-    },
-    {
-        "title":"登录名称和姓名都不存在",
-        "request_data":{"login_name":"#loginname#","user_name":"#username#"},
-        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
-        "IsSql":"0"
-    }
-]
