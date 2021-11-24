@@ -12,7 +12,7 @@
 from common.base_case_test import BaseCase
 from page_object.user_manage_page import User_Manage_Page
 from page_object.home_page import HomePage
-from testdata.user_manage_datas import user_manage_success,fail_deptname_isempty,delete_all_user,search_name_data
+from testdata.user_manage_datas import user_manage_success,fail_deptname_isempty,delete_all_user,search_name_data,search_name_nodata
 from common.test_data_handler import replace_args
 import pytest
 import allure
@@ -137,24 +137,44 @@ class TestUserManage(BaseCase):
             raise e;
 
 
-
+    # 用户名称和登录名称模糊查询
     @pytest.mark.parametrize("data",search_name_data)
     @allure.title("")
     def test_search_username(self,data,Login):
         allure.dynamic.title(data["title"]);
         self.driver=Login;
         hp = HomePage(driver=self.driver);
+        # 用户名和姓名替换
+        if "#loginname#" in data["request_data"]["login_name"]:
+            # 得到不存在的用户名
+            sql = "select * from sys_user where user_name ='{}' limit 1";
+            loginname = self.get_no_username(sql_templeta=sql);
+            self.log.info("在{}页面，生成的用户名是{}".format(self.name, loginname ));
+            data["request_data"]["login_name"] = replace_args(data["request_data"]["login_name"], loginname=loginname);
+        if "#username#" in data["request_data"]["user_name"]:
+            # 得到未被使用的真实姓名
+            sql = "select * from sys_user where real_name ='{}'";
+            username = self.get_no_username(sql_templeta=sql);
+            self.log.info("在{}页面，生成的姓名是{}".format(self.name, username));
+            data["request_data"]["user_name"] = replace_args(data["request_data"]["user_name"], username=username);
+
+
         hp.system_config_menu_click();
         hp.user_manage_submenu_click();
-        #输入登录名称和姓名
+        # 输入登录名称和姓名
         um = User_Manage_Page(driver=self.driver);
         um.search(**data["request_data"]);
-        # 断言
+        # 断言(此处有待改进，断言方式不正确)
         try:
             self.log.info("{}功能开始断言".format(self.name))
-            for i in self.get_search_text():
-                self.log.info("-----{}-----".format(i))
-                assert data["request_data"]["login_name"] in i;
+            # 断言登录名称
+            if self.get_search_loginname_text() is None and self.get_search_name_text() is None:
+                self.beidouxing_assert(check_data=data["check_data"])
+            else:
+                for i in self.get_search_loginname_text():
+                    assert data["request_data"]["login_name"] in i;
+                for i in self.get_search_name_text():
+                    assert data["request_data"]["user_name"] in i;
         except Exception as e:
             self.log.exception("{}功能断言未通过".format(self.name));
             raise e;
@@ -165,19 +185,34 @@ class TestUserManage(BaseCase):
 
 
 
-    #获取修改成功提示信息
+    # 获取修改成功提示信息
     def get_success_tip(self):
         um = User_Manage_Page(driver=self.driver);
         return um.get_success_tip();
-    #获取部门为空错误提示信息
+    # 获取部门为空错误提示信息
     def get_deptname_isempty(self):
         um = User_Manage_Page(driver=self.driver);
         return um.get_deptname_isempty();
 
-    # 获取登录信息
-    def get_search_text(self):
+    # 获取登录名称
+    def get_search_loginname_text(self):
         um=User_Manage_Page(driver=self.driver);
-        loginames=[];
+        loginames = [];
         for i in um.get_search_usernames():
           loginames.append(i.text)
+        self.log.info("{}功能获取的登录名称是{}".format(self.name,loginames))
         return loginames
+
+    # 获取用户名
+    def get_search_name_text(self):
+        um = User_Manage_Page(driver=self.driver);
+        names=  [];
+        for i in um.get_search_names():
+            names.append(i.text);
+        self.log.info("{}功能获取的用户姓名是:{}".format(self.name,names));
+        return names;
+
+    # 根据用户名和姓名查询不到数据
+    def get_search_nodata_text(self):
+        um = User_Manage_Page(driver=self.driver);
+        return um.get_search_nodata()

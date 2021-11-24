@@ -1,0 +1,16 @@
+INFO     common.loging_handler:test_user_manage.py:152 在用户管理模块页面，生成的用户名是y_pynsm
+INFO     common.loging_handler:test_user_manage.py:158 在用户管理模块页面，生成的姓名是y_dvsra
+INFO     common.loging_handler:base_page.py:122 在首页,进行点击系统设置操作,等待('xpath', '//span[text()="系统设置"]')元素出现【成功】
+INFO     common.loging_handler:base_page.py:154 在首页,进行点击系统设置操作的时候,点击元素('xpath', '//span[text()="系统设置"]')成功
+INFO     common.loging_handler:base_page.py:122 在用户管理页面,进行输入登录名称操作,等待('xpath', "//input[@placeholder='搜索登录名']")元素出现【成功】
+INFO     common.loging_handler:base_page.py:177 在用户管理页面,进行输入登录名称操作的时候,对元素('xpath', "//input[@placeholder='搜索登录名']")输入y_pynsm,【成功】
+INFO     common.loging_handler:base_page.py:122 在用户管理页面,进行输入用户名操作,等待('xpath', "//input[@placeholder='搜索姓名']")元素出现【成功】
+INFO     common.loging_handler:base_page.py:177 在用户管理页面,进行输入用户名操作的时候,对元素('xpath', "//input[@placeholder='搜索姓名']")输入y_dvsra,【成功】
+INFO     common.loging_handler:test_user_manage.py:169 用户管理模块功能开始断言
+INFO     common.loging_handler:test_user_manage.py:203 用户管理模块功能获取的登录名称是[]
+INFO     common.loging_handler:test_user_manage.py:203 用户管理模块功能获取的登录名称是[]
+INFO     common.loging_handler:test_user_manage.py:212 用户管理模块功能获取的用户姓名是:[]
+WARNING  urllib3.connectionpool:connectionpool.py:780 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10b704dc0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c61481c0dd841b225f6965dc17d859a1
+WARNING  urllib3.connectionpool:connectionpool.py:780 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10b7b1ac0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c61481c0dd841b225f6965dc17d859a1
+WARNING  urllib3.connectionpool:connectionpool.py:780 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10b779eb0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/c61481c0dd841b225f6965dc17d859a1
+INFO     common.loging_handler:base_case_test.py:29 =====>用户管理模块:执行测试结束<=====

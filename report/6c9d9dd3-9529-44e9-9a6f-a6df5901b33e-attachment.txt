@@ -10,11 +10,10 @@ INFO     common.loging_handler:base_page.py:154 在首页,进行点击系统设�
 INFO     common.loging_handler:base_page.py:122 在首页,进行点击系统配置操作,等待('xpath', "//span[text()='用户管理']")元素出现【成功】
 INFO     common.loging_handler:base_page.py:154 在首页,进行点击系统配置操作的时候,点击元素('xpath', "//span[text()='用户管理']")成功
 INFO     common.loging_handler:base_page.py:122 在用户管理页面,进行输入登录名称操作,等待('xpath', "//input[@placeholder='搜索登录名']")元素出现【成功】
-INFO     common.loging_handler:base_page.py:177 在用户管理页面,进行输入登录名称操作的时候,对元素('xpath', "//input[@placeholder='搜索登录名']")输入ain,【成功】
+INFO     common.loging_handler:base_page.py:177 在用户管理页面,进行输入登录名称操作的时候,对元素('xpath', "//input[@placeholder='搜索登录名']")输入n,【成功】
 INFO     common.loging_handler:base_page.py:122 在用户管理页面,进行输入用户名操作,等待('xpath', "//input[@placeholder='搜索姓名']")元素出现【成功】
-INFO     common.loging_handler:base_page.py:177 在用户管理页面,进行输入用户名操作的时候,对元素('xpath', "//input[@placeholder='搜索姓名']")输入 ,【成功】
-INFO     common.loging_handler:test_user_manage.py:154 用户管理模块功能开始断言
-WARNING  urllib3.connectionpool:connectionpool.py:780 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10c5269a0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/05e95b36357a3889b4bfeda8be402245
-WARNING  urllib3.connectionpool:connectionpool.py:780 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10c5da0a0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/05e95b36357a3889b4bfeda8be402245
-WARNING  urllib3.connectionpool:connectionpool.py:780 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10c5fc1f0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/05e95b36357a3889b4bfeda8be402245
-INFO     common.loging_handler:base_case_test.py:29 =====>用户管理模块:执行测试结束<=====
+INFO     common.loging_handler:base_page.py:177 在用户管理页面,进行输入用户名操作的时候,对元素('xpath', "//input[@placeholder='搜索姓名']")输入n,【成功】
+INFO     common.loging_handler:test_user_manage.py:169 用户管理模块功能开始断言
+INFO     common.loging_handler:test_user_manage.py:203 用户管理模块功能获取的登录名称是['8ng6nz', 'rnzomq', 'gnhgg5', 'b7jonb', 'wn37iu', 'm7k1nf', 'ctz4n7', 'fnqtec', '7n6vqq', '9nkhz6']
+INFO     common.loging_handler:test_user_manage.py:203 用户管理模块功能获取的登录名称是['8ng6nz', 'rnzomq', 'gnhgg5', 'b7jonb', 'wn37iu', 'm7k1nf', 'ctz4n7', 'fnqtec', '7n6vqq', '9nkhz6']
+INFO     common.loging_handler:test_user_manage.py:212 用户管理模块功能获取的用户姓名是:['jrnc2p', 'zfiayn', '4qgnhg', 'n255nr', 'enk50n', '3zunyf', '7xgrng', 'm00kn6', 'cqqnwi', 'j7wian']

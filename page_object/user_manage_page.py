@@ -113,3 +113,7 @@ class User_Manage_Page(BasePage):
         """
 
         return self.find_elements(UserManageLocators.search_name_input);
+
+
+    def get_search_nodata(self):
+        return self.wait_element_presence_located(UserManageLocators.search_nodata).get_element_text();

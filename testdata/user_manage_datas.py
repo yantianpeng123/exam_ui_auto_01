@@ -76,7 +76,7 @@ fail_deptname_isempty=[
     }
 ]
 
-#删除全选/单选用户
+# 删除全选/单选用户
 delete_all_user=[
     {
         "title":"删除全选用户",
@@ -92,12 +92,52 @@ delete_all_user=[
     }
 ]
 
-#查询用户
+# 用户名称和登录名称模糊查询
 search_name_data=[
     {
-        "title":"",
-        "request_data":{"login_name":"ain","user_name":" "},
+        "title":"模糊查询",
+        "request_data":{"login_name":"n","user_name":"n"},
         "check_data":{"method":"get_search_text"},
+        "IsSql":"0"
+    },
+    {
+        "title":"登录名称不存在",
+        "request_data":{"login_name":"#loginname#","user_name":"n"},
+        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
+        "IsSql":"0"
+    },
+    {
+        "title":"用户名称不存在",
+        "request_data":{"login_name":"n","user_name":"#username#"},
+        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
+        "IsSql":"0"
+    },
+    {
+        "title":"登录名称和用户名称都不存在",
+        "request_data":{"login_name":"#loginname#","user_name":"#username#"},
+        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
+        "IsSql":"0"
+    },
+]
+
+# 查询不存在用户名称和登录名称
+search_name_nodata=[
+    {
+        "title":"登录名称不存在",
+        "request_data":{"login_name":"#loginname#","user_name":"#username#"},
+        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
+        "IsSql":"0"
+    },
+    {
+        "title":"姓名不存在",
+        "request_data":{"login_name":"#loginname#","user_name":"#username#"},
+        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
+        "IsSql":"0"
+    },
+    {
+        "title":"登录名称和姓名都不存在",
+        "request_data":{"login_name":"#loginname#","user_name":"#username#"},
+        "check_data":{"method":"get_search_nodata_text","value":"暂无数据"},
         "IsSql":"0"
     }
 ]

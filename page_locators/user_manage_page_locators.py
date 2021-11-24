@@ -76,5 +76,5 @@ class   UserManageLocators(object):
     #获取姓名
     search_name_input= (By.XPATH,'//td[contains(@class,"el-table_1_column_3")]');
 
-
-
+    #获取不到姓名和登录名称
+    search_nodata =(By.XPATH,"//span[@class='el-table__empty-text']");
