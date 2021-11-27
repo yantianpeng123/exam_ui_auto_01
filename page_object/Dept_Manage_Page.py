@@ -21,7 +21,7 @@ class Dept_Manage_Page(BasePage):
         :param depaname:
         :return:
         """
-        self.wait_element_presence_located(DeptPageLocator.search_dept_input,action="输入部门名称").send_keys(content=deptname);
+        self.wait_element_presence_located(DeptPageLocator.search_dept_input_loc,action="输入部门名称").send_keys(content=deptname);
 
 
     def add_dept(self,deptname):
@@ -30,9 +30,9 @@ class Dept_Manage_Page(BasePage):
         :param deptname:
         :return:
         """
-        self.wait_element_presence_located(DeptPageLocator.add_dept_btn,action="点击添加部门按钮").click_element();
-        self.wait_element_presence_located(DeptPageLocator.plus_dept_input,action="输入部门名称").send_keys(content=deptname);
-        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn,action="点击确定按钮").click_element();
+        self.wait_element_presence_located(DeptPageLocator.add_dept_btn_loc,action="点击添加部门按钮").click_element();
+        self.wait_element_presence_located(DeptPageLocator.plus_dept_input_loc,action="输入部门名称").send_keys(content=deptname);
+        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element();
 
 
 
@@ -42,9 +42,9 @@ class Dept_Manage_Page(BasePage):
         :param index:
         :return:
         """
-        element = self.find_elements(DeptPageLocator.delete_dept_btns);
+        element = self.find_elements(DeptPageLocator.delete_dept_btns_loc);
         element[index].click();
-        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn,action="点击确定按钮").click_element();
+        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element();
 
 
     def edit_dept(self,index=0):
@@ -53,9 +53,9 @@ class Dept_Manage_Page(BasePage):
         :param index:
         :return:
         """
-        element = self.find_elements(DeptPageLocator.edit_dept_btns);
+        element = self.find_elements(DeptPageLocator.edit_dept_btns_loc);
         element[index].click();
-        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn,action="点击确定按钮").click_element();
+        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element();
 
 
     def add_plus_dept(self,index=0):
@@ -64,7 +64,16 @@ class Dept_Manage_Page(BasePage):
         :param index:
         :return:
         """
-        element = self.find_elements(DeptPageLocator.plus_dept_btns);
+        element = self.find_elements(DeptPageLocator.plus_dept_btns_loc);
         element[index].click();
-        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn,action="点击确定按钮").click_element();
+        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element();
 
+
+    def get_dept_name_tables(self):
+        """获取部门名称表格"""
+        return self.find_elements(DeptPageLocator.search_dept_name_tables_loc);
+
+
+
+    def get_no_dept_data(self):
+        return self.wait_element_presence_located(DeptPageLocator.search_no_dept_loc,action="查询不存在的部门元素定位");

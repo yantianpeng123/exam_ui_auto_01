@@ -23,7 +23,7 @@ class TestUserManage(BaseCase):
 
     @allure.title("")
     @pytest.mark.parametrize("data",user_manage_success)
-    def aatest_add_user(self,Login,data):
+    def test_add_user(self,Login,data):
         allure.dynamic.title(data["title"]);
         self.driver=Login;
         um = User_Manage_Page(driver=self.driver)
@@ -66,7 +66,7 @@ class TestUserManage(BaseCase):
 
     @pytest.mark.parametrize("data",fail_deptname_isempty)
     @allure.title("")
-    def aatest_fail_deptname_isempty(self,Login,data):
+    def test_fail_deptname_isempty(self,Login,data):
         allure.dynamic.title(data["title"]);
         self.driver=Login;
         um = User_Manage_Page(driver=self.driver)
@@ -98,7 +98,7 @@ class TestUserManage(BaseCase):
 
     @allure.title("")
     @pytest.mark.parametrize("data",delete_all_user)
-    def aatest_delete_all_user(self,Login,data):
+    def test_delete_all_user(self,Login,data):
         allure.dynamic.title(data["title"]);
         self.driver = Login;
         hp = HomePage(driver=self.driver);

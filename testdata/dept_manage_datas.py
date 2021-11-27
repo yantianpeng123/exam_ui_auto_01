@@ -11,9 +11,9 @@
 
 success_datas= [
     {
-        "title":"添加部门成功",
+        "title":"查询部门",
         "request_data":{"deptname":"#deptname#"},
-        "check_data":{"method":"get_success_tip","value":"成功"},
-        "IsSql":"1" # 进行sql校验
+        "check_data":{"method":"get_no_dept_name","value":"暂无数据"},
+
     }
 ]

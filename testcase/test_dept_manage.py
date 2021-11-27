@@ -40,10 +40,20 @@ class TestDeptManage(BaseCase):
             data["request_data"]["deptname"] = replace_args(data["request_data"]["deptname"],deptname=deptname);
         # 输入部门名称
         dmp.search_dept(**data["request_data"]);
+        # 断言:
+        try:
+            self.log.info("{}页面开始断言".format(self.name));
+            if self.get_dept_name() is None:
+                self.beidouxing_assert(check_data=data["check_data"]);
+            else:
+                for i in self.get_dept_name():
+                    assert data["request_data"]["deptname"] in i;
+        except Exception as e:
+            self.log.exception("{}页面断言未通过".format(self.name));
+            self.log.info("{}-->页面断言未通过愿原因".format(e));
+            raise e;
 
 
-
-        pass;
 
     @allure.title("")
     @pytest.mark.parametrize("data",)
@@ -56,3 +66,17 @@ class TestDeptManage(BaseCase):
     def test_edit_dept(self,Login,data):
         allure.dynamic.title(data["title"])
         pass;
+
+
+
+
+    def get_dept_name(self):
+        dept_names = [];
+        dmp = Dept_Manage_Page(driver=self.driver);
+        for i in dmp.get_dept_name_tables():
+            dept_names.append(i.text);
+        return dept_names;
+
+    def get_no_dept_name(self):
+        dmp = Dept_Manage_Page(driver=self.driver);
+        return dmp.get_no_dept_data().get_element_text();
