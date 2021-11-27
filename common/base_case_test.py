@@ -10,7 +10,7 @@
 # @Software: PyCharm
 '''
 from common.beidouxing_mysql_handler import db
-from common.test_data_handler import get_username
+from common.test_data_handler import get_username,get_deptname
 from common.loging_handler import log;
 import setting
 class BaseCase(object):
@@ -70,3 +70,10 @@ class BaseCase(object):
             username = get_username()
             if not self.db.Isexit(sql=sql_templeta.format(username)):
                 return username;
+
+
+    def get_no_deptname(self,sql_templeta):
+        while True:
+            deptname = get_deptname();
+            if not self.db.Isexit(sql=sql_templeta.format(deptname)):
+                return deptname;

@@ -35,8 +35,16 @@ class HomePage(BasePage):
             self.wait_element_presence_located(HomePageLocator.system_config_submenu_loc,action="点击系统配置").click_element();
 
     def user_manage_submenu_click(self):
+        "点击用户管理"
         if "sys/user" not in self.driver.current_url:
             self.wait_element_presence_located(HomePageLocator.users_manage_submenu_loc,action="点击系统配置").click_element();
+
+
+    def dept_manage_submenu_click(self):
+        "点击部门管理"
+        if "sys/depart" not in self.driver.current_url:
+            self.wait_element_presence_located(HomePageLocator.dept_manage_submenu_loc,action="点击部门管理").click_element();
+
 
     def login_out(self):
         self.wait_element_is_visiable(locator=HomePageLocator.index_icon_loc,action="首页退出").click_element();

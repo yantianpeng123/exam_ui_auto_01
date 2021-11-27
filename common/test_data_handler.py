@@ -19,6 +19,13 @@ def get_username():
     return "".join(username);
 
 
+def get_deptname():
+    deptname=["d_"];
+    for i in range(5):
+        deptname.append(random.choice("qwertyuiopasdfghjklzxcvbnm"));
+    return "".join(deptname);
+
+
 def replace_args(fs,flag ='#',**kwargs):
     """
 
