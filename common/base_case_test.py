@@ -39,7 +39,7 @@ class BaseCase(object):
         method = getattr(self,check_data["method"])
         res= method();
         try:
-            self.assert_equals(res, check_data['value'], msg)
+            self.assert_equals(res, check_data['value'], msg="")
         except Exception as e:
             self.log.exception("{}:断言失败".format(msg));
             self.log.warning("测试函数返回的实际结果是:{}".format(res));

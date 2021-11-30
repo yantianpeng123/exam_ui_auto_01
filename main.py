@@ -16,7 +16,7 @@ if __name__ == '__main__':
     pytest.main([
         "-v",
         "-s",
-        os.path.join(setting.TEST_CASE_DIR,"test_user_manage.py"),
+        os.path.join(setting.TEST_CASE_DIR,"test_dept_manage.py"),
         "--alluredir={}".format(setting.ALLURE_RESULT_DIR),
         "--clean-alluredir"
     ])

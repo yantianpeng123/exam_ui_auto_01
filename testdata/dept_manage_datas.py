@@ -10,13 +10,17 @@
 '''
 
 success_datas= [
-    {
-        "title":"查询部门--未存在的部门",
-        "request_data":{"deptname":"#deptname#"},
-        "check_data":{"method":"get_no_dept_name","value":"暂无数据"}
-    },
+
     {
         "title":"查询部门--存在的部门",
         "request_data":{"deptname":"5"}
+    }
+]
+
+success_no_datas=[
+    {
+        "title": "查询部门--未存在的部门",
+        "request_data": {"deptname": "#deptname#"},
+        "check_data": {"method": "get_no_dept_name", "value": "暂无数据"}
     }
 ]
