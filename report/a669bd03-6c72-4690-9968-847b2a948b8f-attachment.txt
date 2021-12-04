@@ -1,0 +1,27 @@
+INFO     common.loging_handler:base_case_test.py:25 =====>部门管理:开始执行测试<====
+INFO     common.loging_handler:base_page.py:70 在登录页面，进行登录操作，等待('xpath', "//input[@name='username']")元素可见成功
+INFO     common.loging_handler:base_page.py:177 在登录页面,进行登录操作的时候,对元素('xpath', "//input[@name='username']")输入admin,【成功】
+INFO     common.loging_handler:base_page.py:70 在登录页面，进行登录操作，等待('xpath', "//input[@name='password']")元素可见成功
+INFO     common.loging_handler:base_page.py:177 在登录页面,进行登录操作的时候,对元素('xpath', "//input[@name='password']")输入admin,【成功】
+INFO     common.loging_handler:base_page.py:70 在登录页面，进行登录操作，等待('xpath', "//span[text()='登录']")元素可见成功
+INFO     common.loging_handler:base_page.py:154 在登录页面,进行登录操作的时候,点击元素('xpath', "//span[text()='登录']")成功
+INFO     common.loging_handler:base_page.py:122 在首页,进行点击系统设置操作,等待('xpath', '//span[text()="系统设置"]')元素出现【成功】
+INFO     common.loging_handler:base_page.py:154 在首页,进行点击系统设置操作的时候,点击元素('xpath', '//span[text()="系统设置"]')成功
+INFO     common.loging_handler:base_page.py:122 在首页,进行点击部门管理操作,等待('xpath', '//span[text()="部门管理"]')元素出现【成功】
+INFO     common.loging_handler:base_page.py:154 在首页,进行点击部门管理操作的时候,点击元素('xpath', '//span[text()="部门管理"]')成功
+INFO     common.loging_handler:test_dept_manage.py:39 在新增部门--部门不为空功能，生成的用户名是d_jikwb
+INFO     common.loging_handler:test_dept_manage.py:45 部门管理页面,在添加之前的部门数量是:34
+INFO     common.loging_handler:base_page.py:122 在用户管理界面,进行点击添加部门按钮操作,等待('xpath', "//button//span[contains(text(),'添加')]//parent::button//i")元素出现【成功】
+INFO     common.loging_handler:base_page.py:154 在用户管理界面,进行点击添加部门按钮操作的时候,点击元素('xpath', "//button//span[contains(text(),'添加')]//parent::button//i")成功
+INFO     common.loging_handler:base_page.py:122 在用户管理界面,进行输入部门名称操作,等待('xpath', '//label[text()="部门名称"]//following-sibling::div//input')元素出现【成功】
+INFO     common.loging_handler:base_page.py:177 在用户管理界面,进行输入部门名称操作的时候,对元素('xpath', '//label[text()="部门名称"]//following-sibling::div//input')输入d_jikwb,【成功】
+INFO     common.loging_handler:base_page.py:122 在用户管理界面,进行点击确定按钮操作,等待('xpath', "//span[contains(text(),'确 定')]//parent::button")元素出现【成功】
+INFO     common.loging_handler:base_page.py:154 在用户管理界面,进行点击确定按钮操作的时候,点击元素('xpath', "//span[contains(text(),'确 定')]//parent::button")成功
+INFO     common.loging_handler:test_dept_manage.py:50 部门管理页面开始断言
+INFO     common.loging_handler:base_page.py:122 在用户管理界面,进行获取添加部门成功提示操作,等待('tag name', 'h2')元素出现【成功】
+INFO     common.loging_handler:base_page.py:195 在用户管理界面,进行>>获取添加部门成功提示<<操作获取元素('tag name', 'h2')文本内容【成功】,文本内容是:成功
+INFO     common.loging_handler:base_case_test.py:49 部门添加功能:断言成功
+INFO     common.loging_handler:test_dept_manage.py:52 部门管理页面-->新增部门--部门不为空功能--断言成功
+INFO     common.loging_handler:test_dept_manage.py:59 新增部门--部门不为空功能添加部门成功之后的数量是:35
+INFO     common.loging_handler:test_dept_manage.py:62 部门管理页面--新增部门--部门不为空功能--开始数据库断言
+INFO     common.loging_handler:test_dept_manage.py:64 部门管理页面数据库断言通过

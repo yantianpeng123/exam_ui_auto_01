@@ -13,7 +13,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait;
 from selenium.webdriver.support  import expected_conditions as EC;
 from selenium.webdriver.support.select import Select
-from datetime import datetime
+import datetime
 from time import sleep
 import os;
 from common.loging_handler import log
@@ -256,7 +256,7 @@ class BasePage(object):
     def get_page_screehot(self,action):
         # 错误截图报错路径
         img_path = os.path.join(setting.ERROR_SCREENSHOT_DIR,"{}_{}操作 {}.png".format(
-            self.name,action,datetime.datetime.strftime("%Y-%m-%d %H-%M-%S")));
+            self.name,action,datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")));
 
         if self.driver.save_screenshot(img_path):
             self.log.info("生成错误截图:{}【成功】".format(img_path));

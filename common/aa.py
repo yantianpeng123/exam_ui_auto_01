@@ -25,14 +25,21 @@ try:
     sleep(2);  # '//span[text()="系统设置"]'
     wd.find_element_by_xpath('//span[text()="系统设置"]').click();
     sleep(2);
-    wd.find_element_by_xpath("//span[text()='用户管理']").click();
+    wd.find_element_by_xpath("//span[text()='部门管理']").click();
+    sleep(2)
+    wd.find_element_by_xpath('//span[contains(text(),"添加")]').click();
+    wd.find_element_by_xpath('//label[text()="部门名称"]//following-sibling::div//input').send_keys("admin");
+    wd.find_element_by_xpath("//span[contains(text(),'确 定')]").click();
+
+    wd.refresh()
+
 
 
 
     #点击添加
-    sleep(3)
-    wd.find_element_by_xpath("//button[@type='button']//span[contains(text(),'添加')]").click();
-    sleep(2);
+    # sleep(3)
+    # wd.find_element_by_xpath("//button[@type='button']//span[contains(text(),'添加')]").click();
+    # sleep(2);
     #
     # #点击角色选择
     # wd.find_element_by_xpath('//input[@placeholder="请选择角色"]/following-sibling::span//i').click();
@@ -45,11 +52,11 @@ try:
     # wd.find_element_by_xpath("//label[text()='用户名']/following-sibling::div//input").send_keys("ss");
     #
     # # 选择部门
-    wd.find_element_by_xpath("//label[text()='部门']/following-sibling::div//input").click();
-    # wd.find_element_by_xpath("//label[text()='部门']/following-sibling::div//input").send_keys("sasa")
-    sleep(3);
-    element = wd.find_elements(By.XPATH,"//span[@class='el-tree-node__label']")
-    element[0].click();
+    # wd.find_element_by_xpath("//label[text()='部门']/following-sibling::div//input").click();
+    # # wd.find_element_by_xpath("//label[text()='部门']/following-sibling::div//input").send_keys("sasa")
+    # sleep(3);
+    # element = wd.find_elements(By.XPATH,"//span[@class='el-tree-node__label']")
+    # element[0].click();
 
     #wd.find_element_by_xpath("//span[contains(text(),'确 定')]/parent::button").click();
     # wd.find_element_by_xpath('//th[@colspan="1"]//div[text()="用户名"]/preceding::th//span//span').click();

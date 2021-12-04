@@ -11,6 +11,7 @@
 '''
 from page_object.base_page import BasePage;
 from page_locators.dept_manage_page_locators import DeptPageLocator;
+from time import sleep
 class Dept_Manage_Page(BasePage):
     name = "用户管理界面";
 
@@ -32,7 +33,8 @@ class Dept_Manage_Page(BasePage):
         """
         self.wait_element_presence_located(DeptPageLocator.add_dept_btn_loc,action="点击添加部门按钮").click_element();
         self.wait_element_presence_located(DeptPageLocator.plus_dept_input_loc,action="输入部门名称").send_keys(content=deptname);
-        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element();
+        sleep(2);
+        self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element()
 
 
 
@@ -77,3 +79,10 @@ class Dept_Manage_Page(BasePage):
 
     def get_no_dept_data(self):
         return self.wait_element_presence_located(DeptPageLocator.search_no_dept_loc,action="查询不存在的部门元素定位");
+
+
+    def get_add_tip(self):
+        return self.wait_element_presence_located(DeptPageLocator.add_dept_success_tip,action="获取添加部门成功提示");
+
+    def get_no_deptname_tip(self):
+        return self.wait_element_presence_located(DeptPageLocator.add_dept_fail_tip,action="获取部门为空提示");
