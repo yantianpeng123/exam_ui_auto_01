@@ -51,3 +51,19 @@ delete_dept = [
         "check_data":{"method":"","value":"删除成功"}
     }
 ]
+
+
+
+edit_dept_datas =[
+    {
+        "title":"编辑部门--部门名称不一样",
+        "request_data":{"deptname":"#deptname#"},
+        "check_data":{"method":"get_add_tip","value":"成功"},
+        "IsSql":"1"
+    },
+    {
+        "title":"编辑部门--部门为空",
+        "request_data":{"deptname":""},
+        "check_data":{"method":"get_no_deptname_tip","value":"部门名称不能为空！"}
+    }
+]

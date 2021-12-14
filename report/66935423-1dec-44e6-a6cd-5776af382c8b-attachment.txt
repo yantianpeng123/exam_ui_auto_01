@@ -1,8 +1,0 @@
-INFO     common.loging_handler:test_dept_manage.py:129 在部门管理页面，生成的用户名是d_smqby
-INFO     common.loging_handler:base_page.py:122 在用户管理界面,进行输入部门名称操作,等待('xpath', "//input[@placeholder='搜索公司名称']")元素出现【成功】
-INFO     common.loging_handler:base_page.py:177 在用户管理界面,进行输入部门名称操作的时候,对元素('xpath', "//input[@placeholder='搜索公司名称']")输入d_smqby,【成功】
-INFO     common.loging_handler:test_dept_manage.py:135 部门管理页面开始断言
-INFO     common.loging_handler:base_page.py:122 在用户管理界面,进行查询不存在的部门元素定位操作,等待('xpath', "//span[@class='el-table__empty-text']")元素出现【成功】
-INFO     common.loging_handler:base_page.py:195 在用户管理界面,进行>>查询不存在的部门元素定位<<操作获取元素('xpath', "//span[@class='el-table__empty-text']")文本内容【成功】,文本内容是:暂无数据
-INFO     common.loging_handler:base_case_test.py:49 XX功能:断言成功
-INFO     common.loging_handler:test_dept_manage.py:137 部门管理页面断言成功

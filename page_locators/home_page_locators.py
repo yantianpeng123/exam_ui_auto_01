@@ -45,9 +45,6 @@ class HomePageLocator(object):
     users_manage_submenu_loc =(By.XPATH,"//span[text()='用户管理']");
 
 
-
-
-
     #退出之前的三角
     index_icon_loc = (By.XPATH,"//i[@class='el-icon-caret-bottom']");
 

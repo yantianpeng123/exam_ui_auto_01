@@ -49,7 +49,7 @@ class Dept_Manage_Page(BasePage):
         self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element();
 
 
-    def edit_dept(self,index=0):
+    def edit_dept(self,deptname,index=0):
         """
         编辑部门
         :param index:
@@ -57,6 +57,8 @@ class Dept_Manage_Page(BasePage):
         """
         element = self.find_elements(DeptPageLocator.edit_dept_btns_loc);
         element[index].click();
+        # 输入部门名称
+        self.wait_element_presence_located(DeptPageLocator.plus_dept_input_loc,action="输入部门名称").send_keys(content=deptname);
         self.wait_element_presence_located(DeptPageLocator.plus_dept_accept_btn_loc,action="点击确定按钮").click_element();
 
 

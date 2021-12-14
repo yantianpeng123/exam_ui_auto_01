@@ -167,6 +167,7 @@ class BasePage(object):
             raise RuntimeError("不可以在调用wait方法之前调用该方法");
 
         try:
+            sleep(1)
             self.element.clear();
             self.element.send_keys(content);
         except Exception as e:

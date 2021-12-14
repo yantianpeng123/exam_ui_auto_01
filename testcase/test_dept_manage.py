@@ -10,7 +10,7 @@
 # @Software: PyCharm
 '''
 from common.base_case_test import BaseCase
-from testdata.dept_manage_datas import success_datas,success_no_datas,add_dept_datas,fail_add_dept_datas
+from testdata.dept_manage_datas import success_datas,success_no_datas,add_dept_datas,fail_add_dept_datas,edit_dept_datas
 from page_object.home_page import HomePage
 from page_object.Dept_Manage_Page import Dept_Manage_Page
 from common.test_data_handler import replace_args
@@ -23,7 +23,7 @@ class TestDeptManage(BaseCase):
 
     @allure.title("")
     @pytest.mark.parametrize("data",add_dept_datas)
-    def test_add_dept(self,Login,data):
+    def aatest_add_dept(self,Login,data):
         allure.dynamic.title(data["title"]);
         self.driver=Login;
         # 点击系统配置
@@ -69,7 +69,7 @@ class TestDeptManage(BaseCase):
 
     @allure.title("")
     @pytest.mark.parametrize("data",fail_add_dept_datas)
-    def test_no_dept_name_fail(self,Login,data):
+    def aatest_no_dept_name_fail(self,Login,data):
         allure.dynamic.title(data["title"]);
         self.driver = Login;
         # 点击系统配置
@@ -111,7 +111,7 @@ class TestDeptManage(BaseCase):
 
     @allure.title("")
     @pytest.mark.parametrize("data",success_datas)
-    def test_serach_no_data_dept(self,Login,data):
+    def aatest_serach_no_data_dept(self,Login,data):
         allure.dynamic.title(data["title"]);
         self.driver= Login;
         #点击系统配置
@@ -137,7 +137,7 @@ class TestDeptManage(BaseCase):
 
     @allure.title("")
     @pytest.mark.parametrize("data",success_no_datas)
-    def test_search_data_dept(self,Login,data):
+    def aatest_search_data_dept(self,Login,data):
         allure.dynamic.title(data["title"]);
         self.driver=Login;
         if "#deptname#" in data["request_data"]["deptname"]:
@@ -156,7 +156,6 @@ class TestDeptManage(BaseCase):
             self.log.exception("{}功能断言失败".format(self.name));
             self.log.info("{}页面断言失败原因是:{}".format(self.name,e));
             raise e;
-        pass;
 
     @allure.title("")
     # @pytest.mark.parametrize("data",)
@@ -168,10 +167,50 @@ class TestDeptManage(BaseCase):
         pass
 
     @allure.title("")
-    # @pytest.mark.parametrize("data")
+    @pytest.mark.parametrize("data",edit_dept_datas)
     def test_edit_dept(self,Login,data):
         allure.dynamic.title(data["title"])
-        pass;
+        self.driver = Login;
+        # 点击系统配置
+        hp = HomePage(driver=self.driver);
+        hp.system_config_menu_click();
+        hp.dept_manage_submenu_click();
+
+        #先进行查询
+        dmp = Dept_Manage_Page(driver=self.driver);  # 输入部门名称
+        dmp.search_dept(deptname="d_");
+
+        # 点击部门管理
+        if "#deptname#" in data["request_data"]["deptname"]:
+            # 生成不存在部门
+            sql = "select * from sys_depart where dept_name='{}' ;"
+            deptname = self.get_no_deptname(sql_templeta=sql);
+            self.log.info("在{}页面，生成的用户名是{}".format(self.name, deptname))
+            data["request_data"]["deptname"] = replace_args(data["request_data"]["deptname"], deptname=deptname);
+
+        dmp.edit_dept(**data["request_data"]);
+        try:
+            self.log.info("{}功能开始断言".format(data["title"]));
+            self.beidouxing_assert(check_data=data["check_data"]);
+            self.log.info("{}功能断言通过".format(data["title"]));
+        except Exception as e:
+            self.log.exception("{}功能断言未通过".format(data["title"]));
+            self.log.info("断言未通过原因是:{}".format(e));
+            raise e;
+        finally:
+            self.driver.refresh();
+        if data["IsSql"]=="1":
+            self.log.info("{}功能开始数据库断言".format(data["title"]));
+            dept_sql = "select * from sys_depart where dept_name='{}' ;".format(deptname)
+            # 查询修改成功之后部门数量
+            self.log.info("{}功能执行的sql是:{}".format(data["title"],dept_sql));
+            after_count = self.db.get_count(sql=dept_sql);
+            try:
+                self.assert_equals(1,after_count);
+            except Exception as e:
+                self.log.exception("{}功能数据库断言未通过".format(data["title"]));
+                self.log.info("{}功能数据库未通过原因是:{}".format(data["title"]),e);
+                raise e;
 
 
 

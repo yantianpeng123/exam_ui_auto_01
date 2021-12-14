@@ -1,0 +1,7 @@
+INFO     common.loging_handler:base_case_test.py:25 =====>部门管理:开始执行测试<====
+INFO     common.loging_handler:base_page.py:70 在登录页面，进行登录操作，等待('xpath', "//input[@name='username']")元素可见成功
+INFO     common.loging_handler:base_page.py:178 在登录页面,进行登录操作的时候,对元素('xpath', "//input[@name='username']")输入admin,【成功】
+INFO     common.loging_handler:base_page.py:70 在登录页面，进行登录操作，等待('xpath', "//input[@name='password']")元素可见成功
+INFO     common.loging_handler:base_page.py:178 在登录页面,进行登录操作的时候,对元素('xpath', "//input[@name='password']")输入admin,【成功】
+INFO     common.loging_handler:base_page.py:70 在登录页面，进行登录操作，等待('xpath', "//span[text()='登录']")元素可见成功
+INFO     common.loging_handler:base_page.py:154 在登录页面,进行登录操作的时候,点击元素('xpath', "//span[text()='登录']")成功

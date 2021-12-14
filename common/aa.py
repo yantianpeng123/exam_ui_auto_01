@@ -27,10 +27,16 @@ try:
     sleep(2);
     wd.find_element_by_xpath("//span[text()='部门管理']").click();
     sleep(2)
-    wd.find_element_by_xpath('//span[contains(text(),"添加")]').click();
-    wd.find_element_by_xpath('//label[text()="部门名称"]//following-sibling::div//input').send_keys("admin");
-    wd.find_element_by_xpath("//span[contains(text(),'确 定')]").click();
+    # wd.find_element_by_xpath('//span[contains(text(),"添加")]').click();
+    # wd.find_element_by_xpath('//label[text()="部门名称"]//following-sibling::div//input').send_keys("admin");
+    # wd.find_element_by_xpath("//span[contains(text(),'确 定')]").click();
 
+    elm = wd.find_elements("xpath","//i[@class='el-icon-edit']");
+    elm[0].click();
+    sleep(2)
+    wd.find_element_by_xpath('//label[text()="部门名称"]//following-sibling::div//input').clear();
+    sleep(2)
+    wd.find_element_by_xpath('//label[text()="部门名称"]//following-sibling::div//input').send_keys("d_amdin");
     wd.refresh()
 
 
